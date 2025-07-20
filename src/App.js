@@ -9,7 +9,7 @@ function App() {
     email: 'bhaleraoswapnil50@gmail.com',
     location: 'Pune, India',
     linkedin: 'https://www.linkedin.com/in/swapnil-bhalerao-a92a4b21b',
-    github: 'https://github.com/swapnilbhalerao', // Assuming a GitHub link for a developer
+    github: 'https://github.com/codewith-swapnil', // Assuming a GitHub link for a developer
     summary: `As a Node.js Developer with 2.5 years of hands-on experience, I specialize in building scalable, high-performance backend applications. My expertise spans developing robust RESTful APIs, GraphQL services, and microservices architectures. I have a proven track record of significantly improving API response times through advanced optimization techniques like caching and database indexing. I'm also proficient in cloud deployment (AWS, Azure, Firebase) and serverless architectures, committed to delivering efficient and secure solutions.`,
   };
 
