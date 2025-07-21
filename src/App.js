@@ -12,7 +12,8 @@ function App() {
     home: useRef(null),
     about: useRef(null),
     skills: useRef(null),
-    experience: useRef(null), // Added experience section ref
+    experience: useRef(null),
+    certifications: useRef(null), // Added certifications section ref
     projects: useRef(null),
     contact: useRef(null),
   };
@@ -84,6 +85,20 @@ function App() {
           "Migrated monolithic backend services to microservices architecture, improving maintainability.",
           "Worked with DevOps engineers to deploy applications on AWS using Docker and Kubernetes.",
         ],
+      },
+    ],
+    certifications: [
+      {
+        name: "Backend Development And API(Node.js) – FreeCodeCamp",
+        url: "https://www.freecodecamp.org/certification/swapnil222/back-end-development-and-apis" // Placeholder: User mentioned having links, but they were not provided.
+      },
+      {
+        name: "Software Engineer– HackerRank",
+        url: "https://www.hackerrank.com/certificates/iframe/a610c6a7c36e" // Placeholder: User mentioned having links, but they were not provided.
+      },
+      {
+        name: "Solutions Architecture Job Simulation – Forage",
+        url: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_QDmbdkzXhbKGEZCTc_1750871092947_completion_certificate.pdf" // Placeholder: User mentioned having links, but they were not provided.
       },
     ],
     projects: [
@@ -160,11 +175,12 @@ function App() {
             </div>
             <div className="hidden md:flex space-x-8 items-center">
               <Link to="/" onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Home</Link>
-              <Link to="/#about" onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">About</Link>
-              <Link to="/#skills" onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Skills</Link>
-              <Link to="/#experience" onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Experience</Link> {/* Added Experience link */}
-              <Link to="/#projects" onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Projects</Link>
-              <Link to="/#contact" onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Contact</Link>
+              <Link to="/about" onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">About</Link>
+              <Link to="/skills" onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Skills</Link>
+              <Link to="/experience" onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Experience</Link>
+              <Link to="/certifications" onClick={() => scrollToSection('certifications')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Certifications</Link> {/* Added Certifications link */}
+              <Link to="/projects" onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Projects</Link>
+              <Link to="/contact" onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-blue-400 transition-colors duration-200">Contact</Link>
             </div>
             <div className="md:hidden flex items-center space-x-4">
               <button
@@ -180,11 +196,12 @@ function App() {
           <div className={`mobile-menu ${mobileMenuOpen ? 'mobile-menu-open' : 'mobile-menu-closed'} md:hidden bg-gray-800 shadow-lg`}>
             <div className="flex flex-col items-center py-4 space-y-4">
               <Link to="/" onClick={() => scrollToSection('home')} className="text-gray-200 hover:text-blue-400 text-lg">Home</Link>
-              <Link to="/#about" onClick={() => scrollToSection('about')} className="text-gray-200 hover:text-blue-400 text-lg">About</Link>
-              <Link to="/#skills" onClick={() => scrollToSection('skills')} className="text-gray-200 hover:text-blue-400 text-lg">Skills</Link>
-              <Link to="/#experience" onClick={() => scrollToSection('experience')} className="text-gray-200 hover:text-blue-400 text-lg">Experience</Link> {/* Added Experience link */}
-              <Link to="/#projects" onClick={() => scrollToSection('projects')} className="text-gray-200 hover:text-blue-400 text-lg">Projects</Link>
-              <Link to="/#contact" onClick={() => scrollToSection('contact')} className="text-gray-200 hover:text-blue-400 text-lg">Contact</Link>
+              <Link to="/about" onClick={() => scrollToSection('about')} className="text-gray-200 hover:text-blue-400 text-lg">About</Link>
+              <Link to="/skills" onClick={() => scrollToSection('skills')} className="text-gray-200 hover:text-blue-400 text-lg">Skills</Link>
+              <Link to="/experience" onClick={() => scrollToSection('experience')} className="text-gray-200 hover:text-blue-400 text-lg">Experience</Link>
+              <Link to="/certifications" onClick={() => scrollToSection('certifications')} className="text-gray-200 hover:text-blue-400 text-lg">Certifications</Link> {/* Added Certifications link */}
+              <Link to="/projects" onClick={() => scrollToSection('projects')} className="text-gray-200 hover:text-blue-400 text-lg">Projects</Link>
+              <Link to="/contact" onClick={() => scrollToSection('contact')} className="text-gray-200 hover:text-blue-400 text-lg">Contact</Link>
             </div>
           </div>
         </header>
@@ -285,6 +302,29 @@ function App() {
               ))}
             </div>
           </section>
+
+          {/* Certifications Section */}
+          <section id="certifications" ref={sectionRefs.certifications} className="py-16">
+            <h2 className="text-4xl font-bold text-center mb-10 border-b-2 pb-4 border-blue-400 inline-block">Certifications</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {personalInfo.certifications.map((cert, index) => (
+                <a
+                  key={index}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="certification-card bg-gray-800 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 flex flex-col justify-between items-center"
+                >
+                  <p className="text-xl font-semibold text-blue-300 mb-2">{cert.name}</p>
+                  <span className="text-sm text-gray-400">View Credential</span>
+                </a>
+              ))}
+            </div>
+            <p className="text-center text-gray-400 mt-8">
+              (Note: Specific links for certifications are currently placeholders. Please provide actual links to update.)
+            </p>
+          </section>
+
 
           {/* Projects Section */}
           <section id="projects" ref={sectionRefs.projects} className="py-16">
